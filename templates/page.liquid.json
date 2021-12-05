@@ -97,6 +97,12 @@
       "settings": {
         "custom_liquid": "{{ 'hello world' | capitalize }}"
       }
+    },
+    "1638677337e77c2a46": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% unless page.title == 'Liquid' %}\nThe \n{% endunless %}"
+      }
     }
   },
   "order": [
@@ -106,6 +112,7 @@
     "1638675065fbbc31db",
     "1638675068766cd895",
     "163867717911ad74e4",
-    "16386772015360629c"
+    "16386772015360629c",
+    "1638677337e77c2a46"
   ]
 }
