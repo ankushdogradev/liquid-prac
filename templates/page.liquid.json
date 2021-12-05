@@ -1,12 +1,20 @@
 {
   "sections": {
+    "1638687198b3301566": {
+      "type": "liquid-ref",
+      "settings": {
+        "liquid-ref": ""
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
       }
     },
     "1638674949b23b7688": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "1638674949d9f44b73-0": {
           "type": "heading",
@@ -26,12 +34,14 @@
     },
     "16386748264dc4ae91": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "{{ page.title }}"
       }
     },
     "1638675065fbbc31db": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "163867506510ff7c78-0": {
           "type": "heading",
@@ -51,12 +61,14 @@
     },
     "1638675068766cd895": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "{% if page.title == 'Liquid' %}\nYes, the title is Liquid\n{% endif %}"
       }
     },
     "163867717911ad74e4": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "163867717930e2142f-0": {
           "type": "heading",
@@ -76,24 +88,28 @@
     },
     "16386772015360629c": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "{{ 'hello world' | capitalize }}"
       }
     },
     "1638677337e77c2a46": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "{% unless page.title == 'Liquid' %}\nThe page is not liquid\n{% endunless %}"
       }
     },
     "16386797150d8b3af0": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": ""
       }
     }
   },
   "order": [
+    "1638687198b3301566",
     "main",
     "1638674949b23b7688",
     "16386748264dc4ae91",
