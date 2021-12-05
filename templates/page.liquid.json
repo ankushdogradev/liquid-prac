@@ -48,12 +48,19 @@
         "color_scheme": "background-1",
         "full_width": true
       }
+    },
+    "1638675068766cd895": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% if page.title == 'Liquid' %}\nYes\n{% endif %}"
+      }
     }
   },
   "order": [
     "main",
     "1638674949b23b7688",
     "16386748264dc4ae91",
-    "1638675065fbbc31db"
+    "1638675065fbbc31db",
+    "1638675068766cd895"
   ]
 }
