@@ -29,11 +29,31 @@
       "settings": {
         "custom_liquid": "{{ page.title }}"
       }
+    },
+    "1638675065fbbc31db": {
+      "type": "rich-text",
+      "blocks": {
+        "163867506510ff7c78-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tag",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "163867506510ff7c78-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
     }
   },
   "order": [
     "main",
     "1638674949b23b7688",
-    "16386748264dc4ae91"
+    "16386748264dc4ae91",
+    "1638675065fbbc31db"
   ]
 }
