@@ -103,6 +103,12 @@
       "settings": {
         "custom_liquid": "{% unless page.title == 'Liquid' %}\nThe page is not liquid\n{% endunless %}"
       }
+    },
+    "16386797150d8b3af0": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": ""
+      }
     }
   },
   "order": [
@@ -113,6 +119,7 @@
     "1638675068766cd895",
     "163867717911ad74e4",
     "16386772015360629c",
-    "1638677337e77c2a46"
+    "1638677337e77c2a46",
+    "16386797150d8b3af0"
   ]
 }
