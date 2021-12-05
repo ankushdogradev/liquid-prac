@@ -5,15 +5,35 @@
       "settings": {
       }
     },
+    "1638674949b23b7688": {
+      "type": "rich-text",
+      "blocks": {
+        "1638674949d9f44b73-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Object",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "1638674949d9f44b73-0"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true
+      }
+    },
     "16386748264dc4ae91": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{{ }}"
+        "custom_liquid": "{{ page.title }}"
       }
     }
   },
   "order": [
     "main",
+    "1638674949b23b7688",
     "16386748264dc4ae91"
   ]
 }
