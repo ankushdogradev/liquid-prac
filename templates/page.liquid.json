@@ -101,7 +101,7 @@
     "1638677337e77c2a46": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{% unless page.title == 'Liquid' %}\nThe \n{% endunless %}"
+        "custom_liquid": "{% unless page.title == 'Liquid' %}\nThe page is not liquid\n{% endunless %}"
       }
     }
   },
