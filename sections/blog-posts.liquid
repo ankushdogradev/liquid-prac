@@ -1,0 +1,37 @@
+{%- assign blog = section.settings.new-blog -%}
+<h1>{{ blog.articles_count }}</h1>
+
+{% unless blog.articles_count == 0 %}
+    <!-- Display Articles Based On Range -->
+        <!-- https://www.youtube.com/watch?v=ejXm7CMGH6Y&t=576s (2:33:00) -->
+{% endunless %}
+
+{% schema %}
+{
+    "name":"New Blog Posts",
+    "settings": [
+        {
+        
+            "id":"posts-range",
+            "type":"range",
+            "label": "Range",
+            "min": 3,
+            "max": 12,
+            "step": 3,
+            "default":3
+        },
+        {
+            "id": "new-blog",
+            "type": "blog",
+            "label": "Blog"
+        }
+    ],
+    "presets": [
+        {
+            "name": "New Blog Posts",
+            "category": "Posts"
+        }
+    ]
+
+}
+{% endschema %}
