@@ -8,7 +8,7 @@
     "16386748264dc4ae91": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": ""
+        "custom_liquid": "{{ }}"
       }
     }
   },
