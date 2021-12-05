@@ -52,7 +52,7 @@
     "1638675068766cd895": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{% if page.title == 'Liquid' %}\nYes\n{% endif %}"
+        "custom_liquid": "{% if page.title == 'Liquid' %}\nYes, the title is Liquid\n{% endif %}"
       }
     }
   },
