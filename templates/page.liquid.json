@@ -121,6 +121,18 @@
     },
     "16387738370c22cbb7": {
       "type": "social-media",
+      "blocks": {
+        "ea800347-b595-44b9-b342-68c98f6bf632": {
+          "type": "social-network",
+          "settings": {
+            "social-url": "https:\/\/github.com\/",
+            "social-name": "Github"
+          }
+        }
+      },
+      "block_order": [
+        "ea800347-b595-44b9-b342-68c98f6bf632"
+      ],
       "settings": {
         "social-nav": ""
       }
