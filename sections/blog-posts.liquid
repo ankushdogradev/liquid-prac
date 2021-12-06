@@ -1,9 +1,15 @@
 {%- assign blog = section.settings.new-blog -%}
-<h1>{{ blog.articles_count }}</h1>
 
 {% unless blog.articles_count == 0 %}
     <!-- Display Articles Based On Range -->
-
+    {% for article in blog.articles %}
+        <a href="{{ article.url }}">
+            <img src="{{ article.image | img_url: '500x300' }}" alt="Article IMG" width="500" height="300" loading="lazy">
+        </a>
+        <a href="{{ article.url }}">
+            {{ article.title }}
+        </a>
+    {% endfor %}
 {% endunless %}
 
 {% schema %}
