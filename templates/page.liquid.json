@@ -116,7 +116,7 @@
       "type": "blog-posts",
       "settings": {
         "posts-range": 3,
-        "new-blog": ""
+        "new-blog": "news"
       }
     }
   },
