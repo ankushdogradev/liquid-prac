@@ -1,39 +1,41 @@
-{%- assign blog = section.settings.new-blog -%}
+{{ section.settings.liquid-range }}
+
+{% assign blog = section.settings.new-blog %}
 
 {% unless blog.articles_count == 0 %}
-    <!-- Display Articles Based On Range -->
-    <div class="page-width">
-        <ul class="blog__posts articles-wrapper grid grid--peek grid--2-col-tablet grid--4-col-desktop">
-            {% for article in blog.articles  limit: section.settings.posts-range %}
-                <li class="blog__post grid__item article">
+
+    <!-- Display articles based on range -->
+    <div class="page-width" style="display:inline-flex">
+        <div class="grid grid--uniform grid--blog">
+            {% for article in blog.articles limit: section.settings.posts-range %}
+                <div class="grid__item medium-up--one-third">
                     <a href="{{ article.url }}">
-                        <img src="{{ article.image | img_url: '500x300' }}" alt="Article IMG" width="500" height="300" loading="lazy">
+                        <img src="{{ article.image | img_url: '500x' }}"/>
                     </a>
-                    <br>
+                    <br/>
                     <a href="{{ article.url }}">
                         {{ article.title }}
                     </a>
-                    <br>
-                </>
+                    <br/>
+                    <br/>
+                </div>
             {% endfor %}
-        </>
+        </div>
     </div>
-
 {% endunless %}
 
 {% schema %}
 {
-    "name":"New Blog Posts",
+    "name": "New Blog Posts",
     "settings": [
         {
-        
-            "id":"posts-range",
-            "type":"range",
+            "id": "posts-range",
+            "type": "range",
             "label": "Range",
             "min": 3,
             "max": 12,
             "step": 3,
-            "default":3
+            "default": 3
         },
         {
             "id": "new-blog",
@@ -47,6 +49,5 @@
             "category": "Posts"
         }
     ]
-
 }
 {% endschema %}
