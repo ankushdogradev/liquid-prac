@@ -3,7 +3,12 @@
     "1638687198b3301566": {
       "type": "liquid-ref",
       "settings": {
-        "liquid-ref": "Custom Text"
+        "liquid-ref": "Custom Text",
+        "liquid-checkbox": false,
+        "liquid-radio": "Option-1",
+        "liquid-range": 3,
+        "liquid-select": "Option-2",
+        "liquid-textarea": ""
       }
     },
     "main": {
@@ -106,6 +111,13 @@
       "settings": {
         "custom_liquid": ""
       }
+    },
+    "16387552212ed37c01": {
+      "type": "blog-posts",
+      "settings": {
+        "posts-range": 3,
+        "new-blog": ""
+      }
     }
   },
   "order": [
@@ -118,6 +130,7 @@
     "163867717911ad74e4",
     "16386772015360629c",
     "1638677337e77c2a46",
-    "16386797150d8b3af0"
+    "16386797150d8b3af0",
+    "16387552212ed37c01"
   ]
 }
