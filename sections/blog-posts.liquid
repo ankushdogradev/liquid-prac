@@ -2,13 +2,15 @@
 
 {% unless blog.articles_count == 0 %}
     <!-- Display Articles Based On Range -->
-    {% for article in blog.articles %}
+    {% for article in blog.articles  limit: section.settings.posts-range %}
         <a href="{{ article.url }}">
             <img src="{{ article.image | img_url: '500x300' }}" alt="Article IMG" width="500" height="300" loading="lazy">
         </a>
+        <br>
         <a href="{{ article.url }}">
             {{ article.title }}
         </a>
+        <br>
     {% endfor %}
 {% endunless %}
 
