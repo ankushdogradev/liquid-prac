@@ -118,6 +118,24 @@
         "posts-range": 6,
         "new-blog": "news"
       }
+    },
+    "16387738370c22cbb7": {
+      "type": "social-media",
+      "blocks": {
+        "ea800347-b595-44b9-b342-68c98f6bf632": {
+          "type": "social-network",
+          "settings": {
+            "social-url": "https:\/\/github.com\/",
+            "social-name": "Github"
+          }
+        }
+      },
+      "block_order": [
+        "ea800347-b595-44b9-b342-68c98f6bf632"
+      ],
+      "settings": {
+        "social-nav": ""
+      }
     }
   },
   "order": [
@@ -131,6 +149,7 @@
     "16386772015360629c",
     "1638677337e77c2a46",
     "16386797150d8b3af0",
-    "16387552212ed37c01"
+    "16387552212ed37c01",
+    "16387738370c22cbb7"
   ]
 }
