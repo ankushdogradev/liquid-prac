@@ -25,7 +25,7 @@
     <div class="alert-cont warning">
         {% assign needed_for_discount = 6 | minus: cart.item_count %}
         <div class="alert">
-            Add {{ needed_for_discount }} "more product(s) to get 20% discount  
+            Add <span id="remaining">{{ needed_for_discount }}</span> more product(s) to get 20% discount  
         </div>
     </div>   
 {% else %}
@@ -36,23 +36,6 @@
         </div>
     </div>
 {% endif %}
-
-
-<!-- const cartContents = async () => {
-    try {
-        const response = await fetch('/cart.js');
-        const cart = await response.json();
-        return (cart);
-    } catch (err) {
-        console.log("ERROR: ", err);
-    }
-}
-cartContents(); -->
-
-
-{% javascript %}
-
-{% endjavascript %}
 
 
 {% schema %}
@@ -75,3 +58,36 @@ cartContents(); -->
     ]
 }
 {% endschema %}
+
+{%- comment -%}
+*** DISCOUNT COUNTER: ATTEMPT 1 ***
+
+const count = document.querySelector('input#Quantity-1.quantity__input');
+
+const cartAlert = (c) => {
+    console.log("3. Count-ALERT: ", count.value);
+    const num = document.querySelector('.alert #remaining');
+    num.innerHTML = count.value;
+    console.log("👀 ", count);
+}
+
+const cartContents = async () => {
+    try {
+        const response = await fetch('/cart.js');
+        const cart = await response.json();
+        const count = cart.item_count;
+        console.log("2. Count-ASYNC: ", count);
+
+        cartAlert(count);
+    } catch (err) {
+        console.log("ERROR: ", err);
+    }
+}
+
+count.addEventListener('change', (e) => {
+    console.log("1. Count-TRIGGERED: ", e.target.value);
+    cartContents();
+});
+
+
+{%- endcomment -%}

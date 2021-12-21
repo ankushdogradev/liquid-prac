@@ -28,11 +28,38 @@ class CartItems extends HTMLElement {
 
   onChange(event) {
     this.updateQuantity(event.target.dataset.index, event.target.value, document.activeElement.getAttribute('name'));
+
+    // ***** MY CODE FOR COUNTER DISCOUNT *****   
+    const count = event.target.value;
+
+    const cartAlert = (count) => {
+      const warn = document.querySelector('.alert #remaining');
+      const succ = document.querySelector('.alert');
+      const cont = document.querySelector('.alert-cont');
+
+      if (cont.classList.contains('warning')) {
+        if (count < 6) {
+          warn.innerHTML = 6 - count;
+          cont.classList.remove("success");
+          cont.classList.add("warning");
+        } else if (count >= 6) {
+          succ.innerHTML = "congratulation's🎉🎉 you are geting 20% off";
+          cont.classList.remove("warning");
+          cont.classList.add("success");
+        }
+      } else if (cont.classList.contains('success') && count < 6) {
+        succ.innerHTML = `Add <span id="remaining">${6 - count}</span> more product(s) to get 20% discount`;
+        cont.classList.remove("success");
+        cont.classList.add("warning");
+      }
+    }
+
+    cartAlert(count);
+    //  ***** MY CODE FOR COUNTER DISCOUNT *****
   }
 
   getSectionsToRender() {
-    return [
-      {
+    return [{
         id: 'main-cart-items',
         section: document.getElementById('main-cart-items').dataset.id,
         selector: '.js-contents',
@@ -65,7 +92,12 @@ class CartItems extends HTMLElement {
       sections_url: window.location.pathname
     });
 
-    fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
+    fetch(`${routes.cart_change_url}`, {
+        ...fetchConfig(),
+        ...{
+          body
+        }
+      })
       .then((response) => {
         return response.text();
       })
@@ -85,7 +117,7 @@ class CartItems extends HTMLElement {
         }));
 
         this.updateLiveRegions(line, parsedState.item_count);
-        const lineItem =  document.getElementById(`CartItem-${line}`);
+        const lineItem = document.getElementById(`CartItem-${line}`);
         if (lineItem && lineItem.querySelector(`[name="${name}"]`)) lineItem.querySelector(`[name="${name}"]`).focus();
         this.disableLoading();
       }).catch(() => {
