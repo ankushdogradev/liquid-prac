@@ -1,0 +1,77 @@
+{% stylesheet %}
+    .alert-cont {
+        text-align: center;
+        margin-top: 2rem;
+        border-radius: 8px;
+    }
+
+    .alert {
+        font-weight: 800;
+        padding: 0.5rem;
+        text-transform: uppercase;
+    }
+
+    .warning {
+        background-color: tomato;
+    }
+
+    .success {
+        background-color: greenyellow;
+    }
+{% endstylesheet %}
+
+
+{% if cart.item_count < 6 %}  
+    <div class="alert-cont warning">
+        {% assign needed_for_discount = 6 | minus: cart.item_count %}
+        <div class="alert">
+            Add {{ needed_for_discount }} "more product(s) to get 20% discount  
+        </div>
+    </div>   
+{% else %}
+    <div class="alert-cont success">
+        {% assign needed_for_discount = 6 | minus: cart.item_count %}
+        <div class="alert">
+            congratulation's🎉🎉 you are geting 20% off
+        </div>
+    </div>
+{% endif %}
+
+
+<!-- const cartContents = async () => {
+    try {
+        const response = await fetch('/cart.js');
+        const cart = await response.json();
+        return (cart);
+    } catch (err) {
+        console.log("ERROR: ", err);
+    }
+}
+cartContents(); -->
+
+
+{% javascript %}
+
+{% endjavascript %}
+
+
+{% schema %}
+{
+    "name": "Discount",
+    "class": "page-width",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading_discount",
+            "label": "heading",
+            "default": "Special Discount🎉🎉"
+        }
+    ],
+    "presets": [
+        {
+            "category": "Discount",
+            "name":"Special Discount"
+        }
+    ]
+}
+{% endschema %}
