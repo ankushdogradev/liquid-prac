@@ -20,6 +20,12 @@
     }
 {% endstylesheet %}
 
+{% for discount_application in cart.discount_applications %}
+    {% if discount_application.value_type == 'percentage' %}
+        {{ discount_application.value | remove: '0' }}
+    {% endif %}
+{% endfor %}
+
 
 {% if cart.item_count < 6 %}  
     <div class="alert-cont warning">
@@ -76,7 +82,7 @@ const cartContents = async () => {
         const response = await fetch('/cart.js');
         const cart = await response.json();
         const count = cart.item_count;
-        console.log("2. Count-ASYNC: ", count);
+        console.log("Count-ASYNC: ", count);
 
         cartAlert(count);
     } catch (err) {

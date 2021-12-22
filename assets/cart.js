@@ -1,9 +1,50 @@
+// ***** MY CODE FOR COUNTER DISCOUNT *****  
+
+const cartAlert = (count) => {
+  const warn = document.querySelector('.alert #remaining');
+  const succ = document.querySelector('.alert');
+  const cont = document.querySelector('.alert-cont');
+  console.log("Count-ALERT: ", count);
+
+  if (cont.classList.contains('warning')) {
+    if (count < 6) {
+      warn.innerHTML = 6 - count;
+      cont.classList.remove("success");
+      cont.classList.add("warning");
+    } else if (count >= 6) {
+      succ.innerHTML = "congratulation's🎉🎉 you are geting 20% off";
+      cont.classList.remove("warning");
+      cont.classList.add("success");
+    }
+  } else if (cont.classList.contains('success') && count < 6) {
+    succ.innerHTML = `Add <span id="remaining">${6 - count}</span> more product(s) to get 20% discount`;
+    cont.classList.remove("success");
+    cont.classList.add("warning");
+  }
+}
+
+const getCartViaApi = async () => {
+  try {
+    const response = await fetch('/cart.js');
+    const cart = await response.json();
+    const count = cart.item_count;
+    console.log("Count-ASYNC: ", count);
+
+    cartAlert(count);
+  } catch (err) {
+    console.log("ERROR: ", err);
+  }
+}
+
+// ***** MY CODE FOR COUNTER DISCOUNT *****  
+
 class CartRemoveButton extends HTMLElement {
   constructor() {
     super();
     this.addEventListener('click', (event) => {
       event.preventDefault();
       this.closest('cart-items').updateQuantity(this.dataset.index, 0);
+      getCartViaApi();
     });
   }
 }
@@ -30,31 +71,9 @@ class CartItems extends HTMLElement {
     this.updateQuantity(event.target.dataset.index, event.target.value, document.activeElement.getAttribute('name'));
 
     // ***** MY CODE FOR COUNTER DISCOUNT *****   
-    const count = event.target.value;
-
-    const cartAlert = (count) => {
-      const warn = document.querySelector('.alert #remaining');
-      const succ = document.querySelector('.alert');
-      const cont = document.querySelector('.alert-cont');
-
-      if (cont.classList.contains('warning')) {
-        if (count < 6) {
-          warn.innerHTML = 6 - count;
-          cont.classList.remove("success");
-          cont.classList.add("warning");
-        } else if (count >= 6) {
-          succ.innerHTML = "congratulation's🎉🎉 you are geting 20% off";
-          cont.classList.remove("warning");
-          cont.classList.add("success");
-        }
-      } else if (cont.classList.contains('success') && count < 6) {
-        succ.innerHTML = `Add <span id="remaining">${6 - count}</span> more product(s) to get 20% discount`;
-        cont.classList.remove("success");
-        cont.classList.add("warning");
-      }
-    }
-
-    cartAlert(count);
+    // const count = event.target.value;
+    // getCartViaApi(count);
+    // cartAlert(count);
     //  ***** MY CODE FOR COUNTER DISCOUNT *****
   }
 
@@ -146,6 +165,12 @@ class CartItems extends HTMLElement {
     setTimeout(() => {
       cartStatus.setAttribute('aria-hidden', true);
     }, 1000);
+
+
+    // ***** MY CODE FOR COUNTER DISCOUNT *****   
+    const count = this.currentItemCount;
+    getCartViaApi(count);
+    //  ***** MY CODE FOR COUNTER DISCOUNT *****
   }
 
   getSectionInnerHTML(html, selector) {
